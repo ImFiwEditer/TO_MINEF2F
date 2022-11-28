@@ -21,7 +21,7 @@
   
  ![](https://cdn.discordapp.com/attachments/797648321061715989/1046874026993262612/image.png)
  
-3. ติดตั้ง `requirements.txt` ด้วยคำสั่ง `pip install -r requirements.txt`
+3. ติดตั้ง `requirements.txt` ด้วยการพิมคำสั่ง `pip install -r requirements.txt`
    - หากคุณใช้ Windows คุณอาจต้องเรียกใช้ CMD ในฐานะผู้ดูแลระบบ)
 
 ![](https://i.alexflipnote.dev/4QPnZiX.gif)
