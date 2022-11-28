@@ -26,7 +26,7 @@
 
 ![](https://i.alexflipnote.dev/4QPnZiX.gif)
 
-4. ไปที่ [Discord Developer Panel](https://discord.com/developers/applications), ลงชื่อเข้าใช้และคลิก `New Application`. พิมชื่อใดก็ได้, คลิกยอมรับและสร้าง ,ถัดไปไปที่ส่วน `Bot` และคลิก 'Add Bot' คลิกที่ 'Reset Token' และคัดลอกหนึ่งรายการ
+4. ไปที่ [Discord Developer Panel](https://discord.com/developers/applications), ลงชื่อเข้าใช้และคลิก `New Application`. พิมชื่อใดก็ได้, คลิกยอมรับและสร้าง ,ถัดไปไปที่ส่วน `Bot` และคลิก 'Add Bot' คลิกที่ 'Reset Token' และคัดลอก Bot Token ไว้
 
 5. รันบอทด้วยการพิมคําสั่ง `python index.py` ใน CMD (Linux และ MacOS สามารถใช้ python3 ได้)
  
