@@ -22,8 +22,9 @@ while True:
     if data.get("id", None):
         break
 
+    print("\n")
     print("\nInvalid Bot Token. Try again.")
-
+    print("\n")
 
 class FunnyBadge(Client):
     def __init__(self, *, intents: Intents):
@@ -45,10 +46,17 @@ async def on_ready():
         Client ID to make sure you invite the correct bot with correct scopes.
     """
     print("\n".join([
-        f"Logged {client.user} (ID: {client.user.id})",
-        "",
-        f"Link Invite Bot {client.user} To Server:",
+        f"",
+        f"",
+        f"/////////////////////////////////////////////////////////////////////////////////////",
+        f"",
+        f"--------- Login as /// {client.user} /// ID: {client.user.id} /// ----------------",
+        f"",
+        f"------------------ Link Invite Bot /// {client.user} /// To Server ------------------",
+        f"",
         f"https://discord.com/api/oauth2/authorize?client_id={client.user.id}&scope=applications.commands%20bot"
+        f"",
+        f""
     ]))
 
 
@@ -65,14 +73,16 @@ async def _init_command_response(interaction: Interaction) -> None:
         f"สวัสดี **{interaction.user}**, ขอบคุณที่ทักทายฉัน.",
         "",
         "__**ยศของฉันอยู่ไหน?**__",
-        "Discord จะตรวจสอบยศเป็นระยะๆ, "
-        "ภายใน 24 ชั่วโมงหรือมากกว่านั้นคุณจะได้รับยศ,"
+        "",
+        "Discord จะตรวจสอบยศเป็นระยะ ๆ",
+        "ภายใน 24 ชั่วโมงหรือมากกว่านั้นคุณจะได้รับยศ",
         "",
         "__**ผ่านไป 24 ชั่วโมงแล้ว, ฉันจะรับยศอย่างไร?**__",
+        "",
         "หากเลย 24 ชั่วโมงไปแล้ว คุณสามารถไปที่ "
         "https://discord.com/developers/active-developer และกรอก 'แบบฟอร์ม' ที่นั่น",
         "",
-        "__**Active Developer Badge Updates**__",
+        "__**Active Developer Badge**__",
         "การอัปเดตเกี่ยวกับยศ Active Developer สามารถพบได้ใน "
         "เซิร์ฟเวอร์ Discord Developers -> discord.gg/discord-developers - ในช่อง #active-dev-badge",
     ]))
