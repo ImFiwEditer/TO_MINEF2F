@@ -2,29 +2,34 @@ import requests
 
 from discord import app_commands, Intents, Client, Interaction
 
+# This will print the information in console
 print("\n".join([
-    "----------------------",
-    "| ////////////////// |",
-    "|   Enter Bot Token  |",
-    "| ////////////////// |",
-    "----------------------"
+    "Hey, welcome to the active developer badge bot.",
+    "Please enter your bot's token below to continue.",
+    "",
+    "Don't close this application after entering the token. "
+    "You may close it after the bot has been invited and the command has been ran."
 ]))
 
 
 while True:
+    # While loop starts and used Python.input() to get the token
     token = input("> ")
 
+    # Then validates if the token you provided was correct or not
     r = requests.get("https://discord.com/api/v10/users/@me", headers={
         "Authorization": f"Bot {token}"
     })
 
+    # If the token is correct, it will continue the code
     data = r.json()
     if data.get("id", None):
-        break
+        break  # Breaks the while loop
 
-    print("\n")
-    print("\nInvalid Bot Token. Try again.")
-    print("\n")
+    # If the token is incorrect, it will print the error message
+    # and ask you to enter the token again (while Loop)
+    print("\nSeems like you entered an invalid token. Try again.")
+
 
 class FunnyBadge(Client):
     def __init__(self, *, intents: Intents):
@@ -36,6 +41,9 @@ class FunnyBadge(Client):
         await self.tree.sync(guild=None)
 
 
+# Variable to store the bot class and interact with it
+# Since this is a simple bot to run 1 command over slash commands
+# We then do not need any intents to listen to events
 client = FunnyBadge(intents=Intents.none())
 
 
@@ -46,17 +54,10 @@ async def on_ready():
         Client ID to make sure you invite the correct bot with correct scopes.
     """
     print("\n".join([
-        f"",
-        f"",
-        f"/////////////////////////////////////////////////////////////////////////////////////",
-        f"",
-        f"--------- Login as /// {client.user} /// ID: {client.user.id} /// ----------------",
-        f"",
-        f"------------------ Link Invite Bot /// {client.user} /// To Server ------------------",
-        f"",
+        f"Logged in as {client.user} (ID: {client.user.id})",
+        "",
+        f"Use this URL to invite {client.user} to your server:",
         f"https://discord.com/api/oauth2/authorize?client_id={client.user.id}&scope=applications.commands%20bot"
-        f"",
-        f""
     ]))
 
 
@@ -67,36 +68,40 @@ async def _init_command_response(interaction: Interaction) -> None:
         do not natevily support aliases, so we have to fake it.
     """
 
+    # Responds in the console that the command has been ran
     print(f"> {interaction.user} used the command.")
 
+    # Then responds in the channel with this message
     await interaction.response.send_message("\n".join([
-        f"สวัสดี **{interaction.user}**, ขอบคุณที่ทักทายฉัน.",
+        f"Hi **{interaction.user}**, thank you for saying hello to me.",
         "",
-        "__**ยศของฉันอยู่ไหน?**__",
+        "__**Where's my badge?**__",
+        "Eligibility for the badge is checked by Discord in intervals, "
+        "at this moment in time, 24 hours is the recommended time to wait before trying.",
         "",
-        "Discord จะตรวจสอบยศเป็นระยะ ๆ",
-        "ภายใน 24 ชั่วโมงหรือมากกว่านั้นคุณจะได้รับยศ",
+        "__**It's been 24 hours, now how do I get the badge?**__",
+        "If it's already been 24 hours, you can head to "
+        "https://discord.com/developers/active-developer and fill out the 'form' there.",
         "",
-        "__**ผ่านไป 24 ชั่วโมงแล้ว, ฉันจะรับยศอย่างไร?**__",
-        "",
-        "หากเลย 24 ชั่วโมงไปแล้ว คุณสามารถไปที่ "
-        "https://discord.com/developers/active-developer และกรอก 'แบบฟอร์ม' ที่นั่น",
-        "",
-        "__**Active Developer Badge**__",
-        "การอัปเดตเกี่ยวกับยศ Active Developer สามารถพบได้ใน "
-        "เซิร์ฟเวอร์ Discord Developers -> discord.gg/discord-developers - ในช่อง #active-dev-badge",
+        "__**Active Developer Badge Updates**__",
+        "Updates regarding the Active Developer badge can be found in the "
+        "Discord Developers server -> discord.gg/discord-developers - in the #active-dev-badge channel.",
     ]))
 
 
 @client.tree.command()
 async def hello(interaction: Interaction):
-    """ พิม hello หรืออะไรซักอย่าง """
+    """ Says hello or something """
+    # Calls the function "_init_command_response" to respond to the command
     await _init_command_response(interaction)
 
 
 @client.tree.command()
 async def givemebadge(interaction: Interaction):
-    """ hello หรืออะไรสักอย่าง แต่ใช้ชื่ออื่น """
+    """ Says hello or something, but with a different name """
+    # Calls the function "_init_command_response" to respond to the command
     await _init_command_response(interaction)
 
+
+# Runs the bot with the token you provided
 client.run(token)
