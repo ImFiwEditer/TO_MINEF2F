@@ -4,9 +4,9 @@ from discord import app_commands, Intents, Client, Interaction
 
 # This will print the information in console
 print("\n".join([
-    "---------------"
-    "ENTER BOT TOKEN"
-    "---------------"
+    "\n---------------"
+    "\nENTER BOT TOKEN"
+    "\n---------------"
 ]))
 
 
