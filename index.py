@@ -73,6 +73,7 @@ async def _init_command_response(interaction: Interaction) -> None:
         "__**ผ่านไป 24 ชั่วโมงแล้ว ฉันจะรับยศได้อย่างไร?**__",
         "",
         "หากเลย 24 ชั่วโมงไปแล้ว คุณสามารถไปที่ "
+        "",
         "https://discord.com/developers/active-developer และกรอก 'แบบฟอร์ม' ที่นั่น",
         "",
         "__**Active Developer Badge Updates**__",
